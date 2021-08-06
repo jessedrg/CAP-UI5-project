@@ -1,0 +1,158 @@
+{
+  "_version": "1.12.0",
+
+  "sap.app": {
+    "id": "be.wl.CAPDemoUI",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "v2/browse/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+    }
+  },
+
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://detail-view",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "be.wl.CAPDemoUI.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+
+    "dependencies": {
+      "minUI5Version": "1.66.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.f": {}
+      }
+    },
+
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "be.wl.CAPDemoUI.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true
+      }
+    },
+
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "be.wl.CAPDemoUI.view",
+        "controlId": "app",
+        "bypassed": {
+          "target": "notFound"
+        }
+      },
+
+      "routes": [
+        {
+          "pattern": "",
+          "name": "User",
+          "target": ["User", "Home"]
+        },
+        {
+          "pattern": "/GastosBalance/{productPath}",
+          "name": "GastosBalance",
+          "target": ["Categories", "UserDisplay"]
+        },
+        {
+          "pattern": "browse/User({productPath})/expense",
+          "name": "Balance",
+          "target": ["GastosBalance", "Categories"]
+        },
+        {
+          "pattern": "User({productPath})/expense",
+          "name": "BalanceUsuario",
+          "target": ["Balance", "Categories"]
+        }
+      ],
+
+      "targets": {
+        "Home": {
+          "viewName": "Home",
+          "viewType": "XML",
+          "viewLevel": 1,
+          "controlAggregation": "masterPages"
+        },
+        "Categories": {
+          "viewName": "Categories",
+          "viewType": "XML",
+          "viewLevel": 1,
+          "controlAggregation": "masterPages"
+        },
+        "UserDisplay": {
+          "viewName": "UserDisplay",
+          "viewType": "XML",
+          "viewLevel": 1,
+          "controlAggregation": "detailPages"
+        },
+        "GastosBalance": {
+          "viewName": "GastosBalance",
+          "viewType": "XML",
+          "viewLevel": 1,
+          "controlAggregation": "detailPages"
+        },
+        "User": {
+          "viewName": "User",
+          "viewType": "XML",
+          "viewLevel": 1,
+          "controlAggregation": "detailPages"
+        },
+        "Balance": {
+          "viewName": "Balance",
+          "viewType": "XML",
+          "viewLevel": 1,
+          "controlAggregation": "detailPages"
+        }
+      }
+    }
+  }
+}

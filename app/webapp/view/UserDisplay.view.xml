@@ -1,0 +1,41 @@
+<mvc:View
+controllerName="be.wl.CAPDemoUI.controller.UserDisplay"
+	displayBlock="true"
+	height="100%"
+	xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+			<VBox fitContainer="true">
+				<f:SimpleForm id="SimpleFormDisplay480"
+					minWidth="1024"
+					maxContainerCols="2"
+					editable="false"
+					layout="ResponsiveGridLayout"
+					title="Empleado:"
+					labelSpanL="4"
+					labelSpanM="4"
+					emptySpanL="0"
+					emptySpanM="0"
+					columnsL="2"
+					columnsM="2">
+					<f:content>
+						<c:Title text="Informacion empleado" />
+                        <Label text="ID" />
+						<Text text="{user>/ID}" />
+						<Label text="Nombre" />
+						<Text text="{user>/name}" />
+						<Label text="Apellidos" />
+						<Text text="{user>/second_name}" />
+						<c:Title text="Contacto empleado" />
+						<Label text="Email" />
+						<Text text="{user>/email}" />
+					</f:content>
+                </f:SimpleForm>
+            </VBox>
+
+		
+		<Text text="hey"/>
+</mvc:View>

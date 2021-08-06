@@ -1,0 +1,39 @@
+<mvc:View
+	controllerName="be.wl.CAPDemoUI.controller.GastosBalance"
+	displayBlock="true"
+	height="100%"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:smartList="sap.ui.comp.smartlist"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc">
+	<Bar>
+		<contentRight>
+			<Button id="save" text="Calcular" type="Emphasized"  press="handleSavePress" />
+		</contentRight>
+	</Bar>
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="gastosEmpresa"
+			editable="true"
+			layout="ColumnLayout"
+			title="Cuanto dinero gastas?"
+			columnsM="2"
+			columnsL="3"
+			columnsXL="4"
+			>
+			<f:content>
+				<core:Title text="Dinero que gastas" />
+				<Label text="ID" />
+				<Input id="ID" value="{formModel>/ID}" />
+				<Label text="Gastado en Comida" />
+				<Input id="gastoFijo" value="{formModel>/comida}" />
+				<Label text="Gasto transporte/hotel" />
+				<Input id="gastoExtra" value="{formModel>/transporte_hotel}" />
+				<core:Title text="Dinero que te debe la empresa" />
+				<Label text="Dinero recivido" />
+				<Input id="nomina" value="{formModel>/dineroPagado}" />
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+</mvc:View>

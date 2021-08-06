@@ -1,0 +1,17 @@
+<mvc:View
+    controllerName="be.wl.CAPDemoUI.controller.Categories"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+
+<Page
+        id="master"
+        backgroundDesign="List"
+        title="{i18n>Informacion}">
+        <List>
+            <StandardListItem title="{i18n>Gastos}" type="Navigation" press=".onPressGoToBalance"  />
+            <StandardListItem title="Inicio" type="Navigation" press=".onPressGoToInicio"  />
+        </List>
+    </Page>
+</mvc:View>

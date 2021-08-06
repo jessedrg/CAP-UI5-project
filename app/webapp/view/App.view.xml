@@ -1,0 +1,9 @@
+<mvc:View
+	controllerName="be.wl.CAPDemoUI.controller.App"
+	displayBlock="true"
+	height="100%"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:mvc="sap.ui.core.mvc">
+	<SplitApp class="myAppDemoWT" id="app"></SplitApp>
+</mvc:View>

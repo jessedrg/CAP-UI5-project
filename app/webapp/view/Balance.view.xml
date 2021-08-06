@@ -1,0 +1,62 @@
+<mvc:View
+	controllerName="be.wl.CAPDemoUI.controller.Balance"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout" >
+	<Button icon="sap-icon://add" press=".onNavBack" />
+	<Table
+		items='{balanceModel>/balances}'>
+		<columns>
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="Gastado en comida" />
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="Gastado en transporte y hoteles" />
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="Dinero pagado" />
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="Dinero por pagar" />
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="Delete" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectNumber
+							number="{
+								parts:[{path:'balanceModel>comida'},{path:'CurrencyCode'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: true}
+							}"
+							unit="{CurrencyCode}" />
+					<ObjectNumber
+							number="{
+								parts:[{path:'balanceModel>transporte_hotel'},{path:'CurrencyCode'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: true}
+							}"
+							unit="{CurrencyCode}" />
+					<ObjectNumber
+							number="{
+								parts:[{path:'balanceModel>dineroPagado'},{path:'CurrencyCode'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: true}
+							}"
+							unit="{CurrencyCode}" />
+					<ObjectNumber
+							number="{
+								parts:[{path:'balanceModel>balance'},{path:'CurrencyCode'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: true}
+							}"
+							unit="{CurrencyCode}" />
+					<Button icon="sap-icon://delete" press="onDelete" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>
